@@ -74,4 +74,6 @@
     </div>
 </div>
 
-@assetadd('seo.script', 'vendor/seo/admin/js/seo.js', ['jquery'])
+@push('scripts')
+    <script src="{{ asset('vendor/seo/admin/js/seo.js') }}"></script>
+@endpush

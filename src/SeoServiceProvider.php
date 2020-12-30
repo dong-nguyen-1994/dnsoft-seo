@@ -64,6 +64,10 @@ class SeoServiceProvider extends BaseModuleServiceProvider
 
         $this->registerAdminMenu();
         $this->registerPermissions();
+
+        $this->publishes([
+            __DIR__.'/../public' => public_path('vendor/seo'),
+        ], 'seo');
     }
 
     public function registerPermissions()

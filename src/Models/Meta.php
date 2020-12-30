@@ -3,8 +3,8 @@
 namespace Module\Seo\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Dnsoft\Core\Support\Traits\CacheableTrait;
-use Dnsoft\Core\Support\Traits\TranslatableTrait;
+use Dnsoft\Core\Traits\CacheableTrait;
+use Dnsoft\Core\Traits\TranslatableTrait;
 use Dnsoft\Media\Traits\HasMediaTrait;
 
 /**

@@ -3,9 +3,7 @@
 namespace Module\Seo\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Dnsoft\Core\Support\Traits\CacheableTrait;
-use Dnsoft\Core\Support\Traits\SlugAttributeTrait;
-use Spatie\Sluggable\SlugOptions;
+use Dnsoft\Core\Traits\CacheableTrait;
 
 /**
  * Module\Seo\Models\Url
