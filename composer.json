@@ -1,0 +1,36 @@
+{
+    "name": "dnsoft/seo",
+    "description": "Module SEO",
+    "keywords": [
+        "dnsoft",
+        "module"
+    ],
+    "homepage": "https://dnguyen.xyz",
+    "support" : {
+        "email" : "support@dnguyen.xyz"
+    },
+    "authors": [
+        {
+            "name": "Dong Nguyen",
+            "email": "dong.joseph2810@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "dnsoft/core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Module\\Seo\\": "/src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Module\\Seo\\SeoServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

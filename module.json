@@ -1,0 +1,8 @@
+{
+    "name": "Seo",
+    "description": "Seo",
+    "namespace": "Module\\Seo\\",
+    "providers": [
+        "Module\\Seo\\SeoServiceProvider"
+    ]
+}
