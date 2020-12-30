@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         @input([
             'name' => 'seometa[title]',
             'label' => __('seo::meta.title')
@@ -20,16 +20,12 @@
             'label' => __('seo::meta.keywords')
         ])
     </div>
-    <div class="col-md-6">
-        <div id="seoDesktopPreview"></div>
-        <div id="seoMobilePreview"></div>
-    </div>
 </div>
 
 <hr>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         @input([
             'name' => 'seometa[og_title]',
             'label' => __('seo::meta.og_title')
@@ -45,15 +41,12 @@
             'label' => __('seo::meta.og_image'),
         ])
     </div>
-    <div class="col-md-6">
-        <div id="seoFacebookPreview"></div>
-    </div>
 </div>
 
 <hr>
 
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         @input([
             'name' => 'seometa[twitter_title]',
             'label' => __('seo::meta.twitter_title')
@@ -68,9 +61,6 @@
             'name' => 'seometa[twitter_image]',
             'label' => __('seo::meta.twitter_image'),
         ])
-    </div>
-    <div class="col-md-6">
-        <div id="seoTwitterPreview"></div>
     </div>
 </div>
 
