@@ -7,7 +7,8 @@
 
         @slug([
             'name' => 'seourl[request_path]',
-            'label' => __('seo::meta.url')
+            'label' => __('seo::meta.url'),
+            'field_slug' => 'seometa[title]'
         ])
 
         @textarea([

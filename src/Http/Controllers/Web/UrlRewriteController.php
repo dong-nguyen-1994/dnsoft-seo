@@ -52,11 +52,10 @@ class UrlRewriteController extends Controller
 
             $params = $request->input();
             $params['skip'] = 'rewrite';
-
             return Route::dispatchToRoute(Request::create($targetPath, 'GET', $params, $_COOKIE));
         } catch (ModelNotFoundException $e) {
-            if ($path === '/' && view()->exists('home')) {
-                return view('home');
+            if ($path === '/' && view()->exists(config('core.homepage'))) {
+                return view(config('core.homepage'));
             }
         }
 
@@ -69,7 +68,7 @@ class UrlRewriteController extends Controller
         return abort(404);
     }
 
-    protected function getTargetPath($path)
+    protected function getTargetPath($path): string
     {
         $matchRequestPath = $this->urlRepository->whereMathRequestPath($path);
 

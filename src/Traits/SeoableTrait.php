@@ -25,8 +25,8 @@ trait SeoableTrait
         });
 
         static::saved(function (self $model) {
-            $model->saveSeourlAttribute();
-            $model->saveSeometaAttribute();
+            $model->saveSeoUrlAttribute();
+            $model->saveSeoMetaAttribute();
         });
     }
 
@@ -37,7 +37,7 @@ trait SeoableTrait
         $this->fillable[] = 'url';
     }
 
-    public function seourl()
+    public function seoUrl(): \Illuminate\Database\Eloquent\Relations\MorphOne
     {
         if (config('core.enable_translate')) {
             return $this
@@ -49,17 +49,17 @@ trait SeoableTrait
         }
     }
 
-    public function seourls()
+    public function seoUrls(): \Illuminate\Database\Eloquent\Relations\MorphMany
     {
         return $this->morphMany(Url::class, 'urlable');
     }
 
-    public function seometa()
+    public function seoMeta(): \Illuminate\Database\Eloquent\Relations\MorphOne
     {
         return $this->morphOne(Meta::class, 'metable');
     }
 
-    public function saveSeometaAttribute()
+    public function saveSeoMetaAttribute()
     {
         if (isset($this->seoableAttributes['seometa'])) {
             $value = $this->seoableAttributes['seometa'];
@@ -67,12 +67,12 @@ trait SeoableTrait
             if ($this->seometa) {
                 $this->seometa->update($value);
             } else {
-                $this->seometa()->create($value);
+                $this->seoMeta()->create($value);
             }
         }
     }
 
-    public function saveSeourlAttribute()
+    public function saveSeoUrlAttribute()
     {
         if (isset($this->seoableAttributes['seourl'])) {
             $value = $this->seoableAttributes['seourl'];
@@ -83,7 +83,7 @@ trait SeoableTrait
             if ($this->seourl) {
                 $this->seourl->update($value);
             } else {
-                $this->seourl()->create($value);
+                $this->seoUrl()->create($value);
             }
         }
     }
@@ -93,7 +93,7 @@ trait SeoableTrait
         $this->seoableAttributes['seometa'] = $value;
     }
 
-    public function setSeourlAttribute($value)
+    public function setSeoUrlAttribute($value)
     {
         $this->seoableAttributes['seourl'] = $value;
     }
@@ -103,14 +103,14 @@ trait SeoableTrait
         if (method_exists($this, 'getUrl')) {
             $targetPath = ltrim(parse_url($this->getUrl(), PHP_URL_PATH), '/');
 
-            $seourls = Url::where('target_path', $targetPath)->get();
+            $seoUrls = Url::where('target_path', $targetPath)->get();
 
-            $seourl = $seourls->where('locale', App::getLocale())->first();
-            if (!$seourl) {
-                $seourl = $seourls->first();
+            $urlSeo = $seoUrls->where('locale', App::getLocale())->first();
+            if (!$urlSeo) {
+                $urlSeo = $seoUrls->first();
             }
 
-            $seoUrl = object_get($seourl, 'request_path', $targetPath);
+            $seoUrl = object_get($urlSeo, 'request_path', $targetPath);
 
             return LaravelLocalization::localizeURL($seoUrl);
         }
