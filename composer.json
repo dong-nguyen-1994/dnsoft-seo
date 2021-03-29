@@ -16,9 +16,6 @@
         }
     ],
     "type": "library",
-    "require": {
-        "dnsoft/core": "dev-master"
-    },
     "autoload": {
         "psr-4": {
             "Module\\Seo\\": "/src"
@@ -31,6 +28,5 @@
             ]
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
