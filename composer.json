@@ -27,6 +27,5 @@
                 "Module\\Seo\\SeoServiceProvider"
             ]
         }
-    },
-    "prefer-stable": true
+    }
 }
