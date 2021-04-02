@@ -95,11 +95,13 @@ class SeoServiceProvider extends BaseModuleServiceProvider
             ])->nickname('seo_root')->data('order', 9)->prepend('<i class="fab fa-keycdn"></i>');
 
             $menu->add(__('seo::menu.pre-redirect.index'), [
-                'parent' => $menu->seo_root->id
+                'parent' => $menu->seo_root->id,
+                'route' => 'seo.admin.pre-redirect.index'
             ])->nickname('seo_pre_redirect')->data('order', 9)->prepend('<i class=" fab fa-telegram-plane"></i>');
 
             $menu->add(__('seo::menu.error-redirect.index'), [
-                'parent' => $menu->seo_root->id
+                'parent' => $menu->seo_root->id,
+                'route' => 'seo.admin.error-redirect.index'
             ])->nickname('seo_error_redirect')->data('order', 9)->prepend('<i class="fas fa-holly-berry"></i>');
 
             event(SeoAdminMenuRegistered::class, $menu);
