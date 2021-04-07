@@ -28,7 +28,7 @@ class UrlRewriteController extends Controller
         $path = ltrim(rtrim($path, '/'), '/') ?: '/';
 
         try {
-            $urlRewrite = $this->getTargetPath($path);
+            $urlRewrite = json_decode($this->getTargetPath($path));
 
             $params = $request->input();
             $params['skip'] = 'rewrite';
