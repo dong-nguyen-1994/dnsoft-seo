@@ -105,7 +105,13 @@ trait SeoableTrait
     {
         if (method_exists($this, 'getUrl')) {
             $targetPath = ltrim(parse_url($this->getUrl(), PHP_URL_PATH), '/');
-
+            $targetPath = explode('/', $targetPath);
+            if (count($targetPath) > 2) {
+                unset($targetPath[0]);
+                $targetPath = implode('/', $targetPath);
+            } else {
+                $targetPath = implode('/', $targetPath);
+            }
             $seoUrls = Url::where('target_path', $targetPath)->get();
 
             $urlSeo = $seoUrls->where('locale', App::getLocale())->first();
