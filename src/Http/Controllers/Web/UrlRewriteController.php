@@ -18,16 +18,6 @@ class UrlRewriteController extends Controller
      */
     protected $urlRepository;
 
-    /**
-     * @var PreRedirectRepositoryInterface
-     */
-    protected $preRedirectRepository;
-
-    /**
-     * @var ErrorRedirectRepositoryInterface
-     */
-    protected $errorRedirectRepository;
-
     public function __construct(UrlRepositoryInterface $urlRepository)
     {
         $this->urlRepository = $urlRepository;
