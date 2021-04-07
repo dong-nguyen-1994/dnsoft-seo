@@ -8,7 +8,7 @@ Route::prefix(LaravelLocalization::setLocale())
         'localizationRedirect',
     ])
     ->group(function () {
-        Route::get('/', UrlRewriteController::class);
+        // Route::get('/', UrlRewriteController::class);
         Route::fallback(UrlRewriteController::class);
     });
 
