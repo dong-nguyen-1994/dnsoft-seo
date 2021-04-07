@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Module\Seo\Models\Url;
-use Module\Seo\Repositories\ErrorRedirectRepositoryInterface;
-use Module\Seo\Repositories\PreRedirectRepositoryInterface;
 use Module\Seo\Repositories\UrlRepositoryInterface;
 use Route;
 
@@ -30,11 +28,9 @@ class UrlRewriteController extends Controller
      */
     protected $errorRedirectRepository;
 
-    public function __construct(UrlRepositoryInterface $urlRepository, PreRedirectRepositoryInterface $preRedirectRepository, ErrorRedirectRepositoryInterface $errorRedirectRepository)
+    public function __construct(UrlRepositoryInterface $urlRepository)
     {
         $this->urlRepository = $urlRepository;
-        $this->preRedirectRepository = $preRedirectRepository;
-        $this->errorRedirectRepository = $errorRedirectRepository;
     }
 
     public function __invoke(Request $request, $path = null)
