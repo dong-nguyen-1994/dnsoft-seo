@@ -42,28 +42,19 @@ class UrlRewriteController extends Controller
         $path = ltrim(rtrim($path, '/'), '/') ?: '/';
 
         try {
-            $preRedirect = $this->preRedirectRepository->findBy('from_path', $path);
-
-            return redirect($preRedirect->to_url, $preRedirect->status_code);
-        } catch (Exception $e) {}
-
-        try {
-            $targetPath = $this->getTargetPath($path);
+            $urlRewrite = $this->getTargetPath($path);
 
             $params = $request->input();
             $params['skip'] = 'rewrite';
-            return Route::dispatchToRoute(Request::create($targetPath, 'GET', $params, $_COOKIE));
+            //return Route::dispatchToRoute(Request::create($urlRewrite->target_path, 'GET', $params, $_COOKIE));
+            $callbackFunc = $urlRewrite->controller.'@detail';
+
+            return app()->call($callbackFunc, ['id' => $urlRewrite->urlable_id]);
         } catch (ModelNotFoundException $e) {
             if ($path === '/' && view()->exists(config('core.homepage'))) {
                 return view(config('core.homepage'));
             }
         }
-
-        try {
-            $errorRedirect = $this->errorRedirectRepository->findBy('from_path', $path);
-
-            return redirect($errorRedirect->to_url, $errorRedirect->status_code);
-        } catch (Exception $e) {}
 
         return abort(404);
     }
@@ -83,6 +74,6 @@ class UrlRewriteController extends Controller
             throw new ModelNotFoundException();
         }
 
-        return $urlRewrite->target_path;
+        return $urlRewrite;
     }
 }

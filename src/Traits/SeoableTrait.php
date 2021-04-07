@@ -14,6 +14,8 @@ trait SeoableTrait
 
     abstract public function getUrl();
 
+    abstract public function getController();
+
     public static function bootSeoableTrait()
     {
         static::deleting(function ($model) {
@@ -79,6 +81,7 @@ trait SeoableTrait
 
             $value['target_path'] = parse_url($this->getUrl(), PHP_URL_PATH);
             $value['request_path'] = $value['request_path'] ?? Str::slug($this->name);
+            $value['controller'] = $value['controller'] = $this->getController();;
 
             if ($this->seourl) {
                 $this->seourl->update($value);

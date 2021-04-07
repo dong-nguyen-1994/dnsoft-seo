@@ -40,6 +40,7 @@ class Url extends Model
         'request_path',
         'target_path',
         'locale',
+        'controller',
     ];
 
     public function __construct(array $attributes = [])
