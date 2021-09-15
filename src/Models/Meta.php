@@ -2,6 +2,8 @@
 
 namespace Module\Seo\Models;
 
+use Dnsoft\Media\Models\MediaFileManager;
+use Dnsoft\Media\Traits\HasMediaTraitFileManager;
 use Illuminate\Database\Eloquent\Model;
 use Dnsoft\Core\Traits\CacheableTrait;
 use Dnsoft\Core\Traits\TranslatableTrait;
@@ -52,8 +54,9 @@ use Dnsoft\Media\Traits\HasMediaTrait;
 class Meta extends Model
 {
     use CacheableTrait;
-    use HasMediaTrait;
+//    use HasMediaTrait;
     use TranslatableTrait;
+    use HasMediaTraitFileManager;
 
     protected $table = 'seo__metas';
 
@@ -91,27 +94,27 @@ class Meta extends Model
         return $this->morphTo();
     }
 
+    public function getOgImageAttribute()
+    {
+        return $this->getSeoMedia('og_image');
+    }
+
+    public function getTwitterImageAttribute()
+    {
+        return $this->getSeoMedia('twitter_image');
+    }
+
     public function setOgImageAttribute($value)
     {
         static::saved(function ($model) use ($value) {
-            $model->syncMedia($value, 'og_image');
+            $model->attachSeoMeta($value, 'og_image');
         });
-    }
-
-    public function getOgImageAttribute()
-    {
-        return $this->getFirstMedia('og_image');
     }
 
     public function setTwitterImageAttribute($value)
     {
         static::saved(function ($model) use ($value) {
-            $model->syncMedia($value, 'twitter_image');
+            $model->attachSeoMeta($value, 'twitter_image');
         });
-    }
-
-    public function getTwitterImageAttribute()
-    {
-        return $this->getFirstMedia('twitter_image');
     }
 }

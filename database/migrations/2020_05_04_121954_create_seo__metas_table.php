@@ -15,7 +15,7 @@ class CreateSeoMetasTable extends Migration
     {
         Schema::create('seo__metas', function (Blueprint $table) {
             $table->id();
-            $table->morphs('metable');
+            $table->nullableMorphs('metable');
             $table->{database_jsonable()}('title')->nullable();
             $table->{database_jsonable()}('description')->nullable();
             $table->{database_jsonable()}('keywords')->nullable();
