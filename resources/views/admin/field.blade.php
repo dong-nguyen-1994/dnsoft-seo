@@ -28,13 +28,13 @@
 <div class="row">
     <div class="col-md-12">
         @input([
-        'name' => 'seometa[og_title]',
-        'label' => __('seo::meta.og_title')
+            'name' => 'seometa[og_title]',
+            'label' => __('seo::meta.og_title')
         ])
 
         @textarea([
-        'name' => 'seometa[og_description]',
-        'label' => __('seo::meta.og_description'),
+            'name' => 'seometa[og_description]',
+            'label' => __('seo::meta.og_description'),
         ])
 
         @singleFile([
@@ -42,7 +42,8 @@
             'label' => __('seo::meta.og_image'),
             'type' => 'image',
             'id' => 'facebook',
-            'idHolder' => 'facebookHolder'
+            'idHolder' => 'facebookHolder',
+            'files' => 'facebook',
         ])
 
     </div>
@@ -67,7 +68,8 @@
             'label' => __('seo::meta.twitter_image'),
             'type' => 'image',
             'id' => 'twitter',
-            'idHolder' => 'twitterHolder'
+            'idHolder' => 'twitterHolder',
+            'files' => 'twitter',
         ])
     </div>
 </div>
