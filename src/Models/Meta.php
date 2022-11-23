@@ -96,25 +96,21 @@ class Meta extends Model
 
     public function getOgImageAttribute()
     {
-        return $this->getSeoMedia('og_image');
+        return $this->getFirstMedia('og_image');
     }
 
     public function getTwitterImageAttribute()
     {
-        return $this->getSeoMedia('twitter_image');
+        return $this->getFirstMedia('twitter_image');
     }
 
     public function setOgImageAttribute($value)
     {
-        static::saved(function ($model) use ($value) {
-            $model->attachSeoMeta($value, 'og_image');
-        });
+        $this->mediaAttributes['og_image'] = $value;
     }
 
     public function setTwitterImageAttribute($value)
     {
-        static::saved(function ($model) use ($value) {
-            $model->attachSeoMeta($value, 'twitter_image');
-        });
+        $this->mediaAttributes['twitter_image'] = $value;
     }
 }
