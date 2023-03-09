@@ -3,7 +3,7 @@
 namespace Module\Seo\Repositories\Eloquent;
 
 use Module\Seo\Repositories\UrlRepositoryInterface;
-use Dnsoft\Core\Repositories\BaseRepository;
+use DnSoft\Core\Repositories\BaseRepository;
 
 class UrlRepository extends BaseRepository implements UrlRepositoryInterface
 {

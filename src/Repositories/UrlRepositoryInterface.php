@@ -2,7 +2,7 @@
 
 namespace Module\Seo\Repositories;
 
-use Dnsoft\Core\Repositories\BaseRepositoryInterface;
+use DnSoft\Core\Repositories\BaseRepositoryInterface;
 
 interface UrlRepositoryInterface extends BaseRepositoryInterface
 {

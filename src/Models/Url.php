@@ -3,7 +3,7 @@
 namespace Module\Seo\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Dnsoft\Core\Traits\CacheableTrait;
+use DnSoft\Core\Traits\CacheableTrait;
 
 /**
  * Module\Seo\Models\Url

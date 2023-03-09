@@ -2,12 +2,10 @@
 
 namespace Module\Seo\Models;
 
-use Dnsoft\Media\Models\MediaFileManager;
-use Dnsoft\Media\Traits\HasMediaTraitFileManager;
+use DnSoft\Media\Traits\HasMediaTraitFileManager;
 use Illuminate\Database\Eloquent\Model;
-use Dnsoft\Core\Traits\CacheableTrait;
-use Dnsoft\Core\Traits\TranslatableTrait;
-use Dnsoft\Media\Traits\HasMediaTrait;
+use DnSoft\Core\Traits\CacheableTrait;
+use DnSoft\Core\Traits\TranslatableTrait;
 
 /**
  * Module\Seo\Models\Meta

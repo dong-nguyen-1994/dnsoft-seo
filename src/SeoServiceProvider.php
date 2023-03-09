@@ -3,7 +3,7 @@
 namespace Module\Seo;
 
 use Illuminate\Support\Facades\Blade;
-use Dnsoft\Core\Support\BaseModuleServiceProvider;
+use DnSoft\Core\Support\BaseModuleServiceProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Event;
 use Module\Seo\Events\SeoAdminMenuRegistered;
@@ -14,8 +14,8 @@ use Module\Seo\Repositories\Eloquent\MetaRepository;
 use Module\Seo\Repositories\Eloquent\UrlRepository;
 use Module\Seo\Repositories\MetaRepositoryInterface;
 use Module\Seo\Repositories\UrlRepositoryInterface;
-use Dnsoft\Acl\Facades\Permission;
-use Dnsoft\Core\Events\CoreAdminMenuRegistered;
+use DnSoft\Acl\Facades\Permission;
+use DnSoft\Core\Events\CoreAdminMenuRegistered;
 
 class SeoServiceProvider extends BaseModuleServiceProvider
 {
