@@ -75,5 +75,5 @@
 </div>
 
 @push('scripts')
-<script src="{{ asset('vendor/seo/admin/js/seo.js') }}"></script>
+<script src="{{ asset('vendor/seo/v1/admin/js/seo.js') }}"></script>
 @endpush
