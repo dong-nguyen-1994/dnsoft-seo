@@ -9,7 +9,7 @@
 <meta property="og:title" content="{{ object_get($item, 'seometa.title', object_get($item, 'name')) }}"/>
 <meta property="og:description" content="{{ object_get($item, 'seometa.og_description', object_get($item, 'seometa.description', object_get($item, 'description'))) }}"/>
 <meta property="og:url" content="{{ object_get($item, 'url') }}"/>
-<meta property="og:site_name" content="{{ settings('site_name') }}"/>
+<meta property="og:site_name" content="{{ get_setting_value_by_name('site_name') }}"/>
 
 {{--<meta property="article:author" content=""/>--}}
 {{--<meta property="article:tag" content="marketing"/>--}}
@@ -39,5 +39,5 @@
     <meta name="twitter:image" content="{{ $twitterImage->getUrl() }}"/>
 @endif
 
-{{--<meta name="twitter:creator" content="@newnet"/>--}}
+{{--<meta name="twitter:creator" content="@dnsoft"/>--}}
 {{--<script type='application/ld+json'></script>--}}
