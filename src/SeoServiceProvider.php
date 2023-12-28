@@ -14,8 +14,6 @@ use Module\Seo\Repositories\Eloquent\MetaRepository;
 use Module\Seo\Repositories\Eloquent\UrlRepository;
 use Module\Seo\Repositories\MetaRepositoryInterface;
 use Module\Seo\Repositories\UrlRepositoryInterface;
-use DnSoft\Acl\Facades\Permission;
-use DnSoft\Core\Events\CoreAdminMenuRegistered;
 
 class SeoServiceProvider extends BaseModuleServiceProvider
 {
